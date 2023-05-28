@@ -1,0 +1,38 @@
+[project]
+name = "my-project"
+authors = []
+description = ""
+telemetry = true
+boot_contracts = ["pox", "costs-v2", "bns"]
+
+[[project.requirements]]
+contract_id = "ST10M9SK9RE5Z919TYVVMTZF9D8E0D6V8GR11BPA5.stx-nft-minting"
+
+[[project.requirements]]
+contract_id = "ST10M9SK9RE5Z919TYVVMTZF9D8E0D6V8GR11BPA5.arkadiko-oracle-v1-1"
+
+[contracts.nft-trait]
+path = "contracts/nft-trait.clar"
+depends_on = []
+
+[contracts.oracle-price]
+path = "contracts/oracle-price.clar"
+depends_on = []
+
+[project.cache_location]
+path = "./.requirements"
+[contracts.bridge]
+path = "contracts/bridge.clar"
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
